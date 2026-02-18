@@ -45,16 +45,43 @@ public class deletehead {
         return temp.data;
     }
 
+    public static Node removeKthElement(Node head, int k){
+        Node temp = head;
+        if(head==null){
+            return head;
+        }
+        if(k==1){
+            head = head.next;
+            return head;
+        }
+        else{
+            int count = 0;
+            Node prev = null;
+            while(temp!=null){
+                count++;
+                if(count==k){
+                    prev.next = temp.next;
+                    break;
+                }
+                prev = temp;
+                temp = temp.next;
+            }
+        }
+        return head;
+    }
+
         public static void main(String[] args){
         int[] arr = {2,3,4,56,7};
         Node head = convertArrtoLL(arr);
         Node temp = head;
+        //System.out.println("Length of linked list is: " + lengthofLL(head));
+        //System.out.println(deleteHead(head).data);
+        System.out.println(removeTail(head));
+        System.out.println(removeKthElement(head, 8).data);
         while(temp!=null){
             System.out.println(temp.data);
             temp = temp.next;
         }
-        //System.out.println("Length of linked list is: " + lengthofLL(head));
-        //System.out.println(deleteHead(head).data);
-        System.out.println(removeTail(head));
+
     }
 }
