@@ -31,8 +31,8 @@ public class insertionathead{
         // Node newNode = new Node(data);
         // newNode.next = temp;
         // head = newNode;
-        Node temp = new Node(data,head);
-        head = temp;
+        Node newnode = new Node(data,head);
+        head = newnode;
         return head;
         // while(temp.next!=null){
 
@@ -40,6 +40,9 @@ public class insertionathead{
     }
 
     public static Node insertAtTail(Node head,int data){
+        if(head==null){
+            return new Node(data);
+        } 
         Node newnode = new Node(data);
         Node temp = head;
         while(temp.next!=null){
@@ -63,8 +66,7 @@ public class insertionathead{
         else{
             int count = 0;
             Node prev = null;
-            while(temp.next!=null){
-                
+            while(temp!=null){
                 count++;
                 if(count==k){
                     prev.next = newnode;
@@ -85,7 +87,7 @@ public class insertionathead{
         System.out.println(head.data);
         Node temp = head;
         //System.out.println(insertAtTail(head, 200));
-        System.out.println(insertAtKthElement(head, 4, 92));
+        System.out.println(insertAtKthElement(head, 6, 92));
         while(temp!=null){
             System.out.println(temp.data);
             temp = temp.next;
@@ -93,3 +95,5 @@ public class insertionathead{
         
     }
 }
+
+
